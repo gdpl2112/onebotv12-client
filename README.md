@@ -8,10 +8,7 @@
 
 [如何启动](https://github.com/gdpl2112/onebotv12-client/blob/master/src/test/java/test.java)
 
-需要配置文件
-conf.txt
-
-[模板](https://github.com/gdpl2112/onebotv12-client/blob/master/conf_template.txt)
+需要配置文件 [conf.txt模板](https://github.com/gdpl2112/onebotv12-client/blob/master/conf_template.txt)
 
 使用 [示例代码](https://github.com/gdpl2112/onebotv12-client/blob/master/src/test/java/test.java)
 
