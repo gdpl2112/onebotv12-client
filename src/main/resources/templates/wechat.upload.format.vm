@@ -1,0 +1,8 @@
+{
+    "action": "upload_file",
+    "params": {
+        "type": "${a}",
+        "name": "${b}",
+        "${c}": "${d}"
+    }
+}

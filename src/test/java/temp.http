@@ -1,0 +1,3 @@
+POST http://47.100.93.243:10024/
+
+{"action":"send_message","params":{"detail_type":"group","group_id":"49679145780@chatroom","message":[{"type":"text","data":{"text":"测试成功"}}]}}
