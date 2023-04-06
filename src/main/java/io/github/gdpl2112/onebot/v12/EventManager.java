@@ -23,7 +23,10 @@ import static io.github.gdpl2112.onebot.v12.WebChatClientWithOneBotV12.LISTENER_
 
 
 /**
+ * <p>EventManager class.</p>
+ *
  * @author github.kloping
+ * @version 1.0
  */
 @Entity
 public class EventManager {
@@ -33,6 +36,12 @@ public class EventManager {
     @AutoStand
     Configuration configuration;
 
+    /**
+     * <p>onEvent.</p>
+     *
+     * @param t a {@link java.lang.String} object.
+     * @param obj a {@link com.alibaba.fastjson.JSONObject} object.
+     */
     public synchronized void onEvent(String t, JSONObject obj) {
         try {
             Class<? extends Event> c0 = null;
@@ -85,6 +94,15 @@ public class EventManager {
         }
     }
 
+    /**
+     * <p>factory.</p>
+     *
+     * @param message a {@link io.github.gdpl2112.onebot.v12.event.Event} object.
+     * @param jo a {@link com.alibaba.fastjson.JSONObject} object.
+     * @param cla a {@link java.lang.Class} object.
+     * @param <T> a T object.
+     * @return a T object.
+     */
     public <T extends Event> T factory(Event message, JSONObject jo, Class<T> cla) {
         Event event = null;
         if (cla == MetaEventImpl.class) {

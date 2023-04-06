@@ -11,12 +11,16 @@ import io.github.gdpl2112.onebot.v12.utils.HttpSender;
 import java.io.IOException;
 
 /**
+ * <p>Abstract ActionSenderImpl class.</p>
+ *
  * @author github.kloping
+ * @version 1.0
  */
 public abstract class ActionSenderImpl implements ActionSender {
     @JSONField(deserialize = false, serialize = false)
     private Configuration configuration;
 
+    /** {@inheritDoc} */
     @Override
     public ActionResp send(String data) {
         String rep = "{}";
@@ -29,17 +33,20 @@ public abstract class ActionSenderImpl implements ActionSender {
         return rp;
     }
 
+    /** {@inheritDoc} */
     @Override
     public ActionResp send(Action action) {
         return send(JSON.toJSONString(action));
     }
 
+    /** {@inheritDoc} */
     @JSONField(deserialize = false, serialize = false)
     @Override
     public Configuration getConfiguration() {
         return configuration;
     }
 
+    /** {@inheritDoc} */
     @JSONField(deserialize = false, serialize = false)
     @Override
     public void setConfiguration(Configuration configuration) {

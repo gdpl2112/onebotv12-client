@@ -6,20 +6,30 @@ import io.github.gdpl2112.onebot.v12.data.MessageChain;
 import io.github.gdpl2112.onebot.v12.event.GroupMessageEvent;
 
 /**
+ * <p>GroupMessageEventImpl class.</p>
+ *
  * @author github.kloping
+ * @version 1.0
  */
 public class GroupMessageEventImpl extends MessageEventImpl implements GroupMessageEvent {
     private String groupId;
 
+    /** {@inheritDoc} */
     @Override
     public String getGroupId() {
         return groupId;
     }
 
+    /**
+     * <p>Setter for the field <code>groupId</code>.</p>
+     *
+     * @param groupId a {@link java.lang.String} object.
+     */
     public void setGroupId(String groupId) {
         this.groupId = groupId;
     }
 
+    /** {@inheritDoc} */
     @Override
     public Group getGroup() {
         Group group = new Group() {
@@ -40,6 +50,7 @@ public class GroupMessageEventImpl extends MessageEventImpl implements GroupMess
         return group;
     }
 
+    /** {@inheritDoc} */
     @Override
     public void sendMessage(MessageChain message) {
         Action action = new Action();

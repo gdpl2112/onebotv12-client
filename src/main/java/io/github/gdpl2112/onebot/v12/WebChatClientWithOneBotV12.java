@@ -21,21 +21,33 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * <p>WebChatClientWithOneBotV12 class.</p>
+ *
  * @author github-kloping
  * 2023-04-05
+ * @version 1.0
  */
 @CommentScan(path = "io.github.kloping.onebot.v12")
 public class WebChatClientWithOneBotV12 {
+    /** Constant <code>LISTENER_HOSTS</code> */
     public static final Set<ListenerHost> LISTENER_HOSTS = new HashSet<>();
     protected StarterObjectApplication application;
     @AutoStand
     Configuration configuration;
     private WebSocketClient client;
 
+    /**
+     * <p>main.</p>
+     *
+     * @param args an array of {@link java.lang.String} objects.
+     */
     public static void main(String[] args) {
         new WebChatClientWithOneBotV12().start();
     }
 
+    /**
+     * <p>start.</p>
+     */
     public void start() {
         application = new StarterObjectApplication();
         application.addConfFile("./conf.txt");

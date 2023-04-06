@@ -14,7 +14,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * <p>MessageEventImpl class.</p>
+ *
  * @author github.kloping
+ * @version 1.0
  */
 public class MessageEventImpl extends EventImpl implements MessageEvent {
     private Self self;
@@ -23,29 +26,47 @@ public class MessageEventImpl extends EventImpl implements MessageEvent {
     private String altMessage;
     private String userId;
 
+    /** {@inheritDoc} */
     @Override
     public Self getSelf() {
         return self;
     }
 
+    /**
+     * <p>Setter for the field <code>self</code>.</p>
+     *
+     * @param self a {@link io.github.gdpl2112.onebot.v12.contact.Self} object.
+     */
     public void setSelf(Self self) {
         this.self = self;
     }
 
+    /** {@inheritDoc} */
     @Override
     public String getMessageId() {
         return messageId;
     }
 
+    /**
+     * <p>Setter for the field <code>messageId</code>.</p>
+     *
+     * @param messageId a {@link java.lang.String} object.
+     */
     public void setMessageId(String messageId) {
         this.messageId = messageId;
     }
 
+    /** {@inheritDoc} */
     @Override
     public MessageChain getMessage() {
         return new MessageChain(message);
     }
 
+    /**
+     * <p>Setter for the field <code>message</code>.</p>
+     *
+     * @param array a {@link com.alibaba.fastjson.JSONArray} object.
+     */
     public void setMessage(JSONArray array) {
         List<Message> messages = new ArrayList<>();
         for (Object o : array) {
@@ -68,24 +89,37 @@ public class MessageEventImpl extends EventImpl implements MessageEvent {
         this.message = messages.toArray(new Message[0]);
     }
 
+    /** {@inheritDoc} */
     @Override
     public String getAltMessage() {
         return altMessage;
     }
 
+    /**
+     * <p>Setter for the field <code>altMessage</code>.</p>
+     *
+     * @param altMessage a {@link java.lang.String} object.
+     */
     public void setAltMessage(String altMessage) {
         this.altMessage = altMessage;
     }
 
+    /** {@inheritDoc} */
     @Override
     public String getUserId() {
         return userId;
     }
 
+    /**
+     * <p>Setter for the field <code>userId</code>.</p>
+     *
+     * @param userId a {@link java.lang.String} object.
+     */
     public void setUserId(String userId) {
         this.userId = userId;
     }
 
+    /** {@inheritDoc} */
     @Override
     public void sendMessage(MessageChain message) {
         Action action = new Action();
@@ -97,21 +131,25 @@ public class MessageEventImpl extends EventImpl implements MessageEvent {
         send(action);
     }
 
+    /** {@inheritDoc} */
     @Override
     public void sendMessage(String message) {
         this.sendMessage(new MessageChain(new Message[]{new PlainText(message)}));
     }
 
+    /** {@inheritDoc} */
     @Override
     public Image uploadImage(File file) {
         return ConfigurationUtils.INSTANCE.uploadImage(file, this);
     }
 
+    /** {@inheritDoc} */
     @Override
     public Image uploadImage(String url) {
         return ConfigurationUtils.INSTANCE.uploadImage(url, this);
     }
 
+    /** {@inheritDoc} */
     @Override
     public Image uploadImage(byte[] bytes) {
         return ConfigurationUtils.INSTANCE.uploadImage(bytes, this);

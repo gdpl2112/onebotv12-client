@@ -14,11 +14,22 @@ import java.util.Base64;
 import java.util.UUID;
 
 /**
+ * <p>ConfigurationUtils class.</p>
+ *
  * @author github.kloping
+ * @version 1.0
  */
 public class ConfigurationUtils {
+    /** Constant <code>INSTANCE</code> */
     public static final ConfigurationUtils INSTANCE = new ConfigurationUtils();
 
+    /**
+     * <p>uploadImage.</p>
+     *
+     * @param file a {@link java.io.File} object.
+     * @param sender a {@link io.github.gdpl2112.onebot.v12.action.ActionSender} object.
+     * @return a {@link io.github.gdpl2112.onebot.v12.data.Image} object.
+     */
     public Image uploadImage(File file, ActionSender sender) {
         byte[] bytes = FileUtils.getBytesFromFile(file.getAbsolutePath());
         ActionResp resp = sender.send(new ActionBuilder(ActionName.UPLOAD_FILE)
@@ -31,6 +42,13 @@ public class ConfigurationUtils {
         return image;
     }
 
+    /**
+     * <p>uploadImage.</p>
+     *
+     * @param url a {@link java.lang.String} object.
+     * @param sender a {@link io.github.gdpl2112.onebot.v12.action.ActionSender} object.
+     * @return a {@link io.github.gdpl2112.onebot.v12.data.Image} object.
+     */
     public Image uploadImage(String url, ActionSender sender) {
         byte[] bytes = UrlUtils.getBytesFromHttpUrl(url);
         ActionResp resp = sender.send(new ActionBuilder(ActionName.UPLOAD_FILE)
@@ -43,6 +61,13 @@ public class ConfigurationUtils {
         return image;
     }
 
+    /**
+     * <p>uploadImage.</p>
+     *
+     * @param bytes an array of byte.
+     * @param sender a {@link io.github.gdpl2112.onebot.v12.action.ActionSender} object.
+     * @return a {@link io.github.gdpl2112.onebot.v12.data.Image} object.
+     */
     public Image uploadImage(byte[] bytes, ActionSender sender) {
         ActionResp resp = sender.send(new ActionBuilder(ActionName.UPLOAD_FILE)
                 .addParam("type", "data")
