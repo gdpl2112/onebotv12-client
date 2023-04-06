@@ -1,11 +1,12 @@
 package io.github.gdpl2112.onebot.v12.event;
 
+import io.github.gdpl2112.onebot.v12.data.ImageUploader;
 import io.github.gdpl2112.onebot.v12.data.MessageChain;
 
 /**
  * @author github.kloping
  */
-public interface MessageEvent extends BotEvent {
+public interface MessageEvent extends BotEvent, ImageUploader {
     /**
      * messageId
      *
@@ -33,7 +34,6 @@ public interface MessageEvent extends BotEvent {
      * @return
      */
     String getUserId();
-    //=========
 
     /**
      * 消息发送

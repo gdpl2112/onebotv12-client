@@ -1,7 +1,6 @@
 package io.github.gdpl2112.onebot.v12.impl.event;
 
 import io.github.gdpl2112.onebot.v12.action.*;
-import io.github.kloping.onebot.v12.action.*;
 import io.github.gdpl2112.onebot.v12.contact.Group;
 import io.github.gdpl2112.onebot.v12.data.MessageChain;
 import io.github.gdpl2112.onebot.v12.event.GroupMessageEvent;

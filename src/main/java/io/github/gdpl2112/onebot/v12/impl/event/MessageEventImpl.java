@@ -6,7 +6,6 @@ import io.github.gdpl2112.onebot.v12.action.Action;
 import io.github.gdpl2112.onebot.v12.action.MessageParams;
 import io.github.gdpl2112.onebot.v12.contact.Self;
 import io.github.gdpl2112.onebot.v12.data.*;
-import io.github.kloping.onebot.v12.data.*;
 import io.github.gdpl2112.onebot.v12.event.MessageEvent;
 import io.github.gdpl2112.onebot.v12.utils.ConfigurationUtils;
 
@@ -17,7 +16,7 @@ import java.util.List;
 /**
  * @author github.kloping
  */
-public class MessageEventImpl extends EventImpl implements MessageEvent, ImageUploader {
+public class MessageEventImpl extends EventImpl implements MessageEvent {
     private Self self;
     private String messageId;
     private Message[] message;
