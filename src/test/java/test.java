@@ -24,7 +24,7 @@ public class test {
             public void onEvent(GroupMessageEvent event) {
                 if (event.getMessage().toString().trim().equals("测试")) {
                     Group group = event.getGroup();
-                   List<Member> members = group.getMembers();
+                    List<Member> members = group.getMembers();
                     System.out.println();
                 }
             }
