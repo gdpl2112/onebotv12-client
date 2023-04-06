@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.github.kloping</groupId>
+    <groupId>io.github.gdpl2112</groupId>
     <artifactId>OneBotV12-WeChat</artifactId>
     <version>1.0</version>
 
@@ -25,7 +25,8 @@
             <groupId>org.apache.velocity</groupId>
             <artifactId>velocity</artifactId>
             <version>1.7</version>
-        </dependency> <!--自制框架-->
+        </dependency>
+        <!--自制框架-->
         <dependency>
             <groupId>io.github.Kloping</groupId>
             <artifactId>SpringTool</artifactId>

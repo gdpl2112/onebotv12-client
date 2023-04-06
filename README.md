@@ -1,5 +1,6 @@
-### OneBot V12 协议 连接端
+### [OneBot V12](https://12.onebot.dev/) 协议 连接端
 
+- [目前对接项目](https://github.com/JustUndertaker/ComWeChatBotClient)
 - 实现语言Java
 - onebot版本v12
 - 实现中..
@@ -10,3 +11,4 @@
 conf.txt
 
 [模板](https://github.com/gdpl2112/onebotv12-client/blob/master/conf_template.txt)
+
