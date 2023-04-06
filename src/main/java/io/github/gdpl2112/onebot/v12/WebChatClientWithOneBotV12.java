@@ -22,19 +22,19 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @author github-kloping
- * @date 2023-04-05
+ * 2023-04-05
  */
 @CommentScan(path = "io.github.kloping.onebot.v12")
 public class WebChatClientWithOneBotV12 {
+    public static final Set<ListenerHost> LISTENER_HOSTS = new HashSet<>();
+    protected StarterObjectApplication application;
+    @AutoStand
+    Configuration configuration;
+    private WebSocketClient client;
+
     public static void main(String[] args) {
         new WebChatClientWithOneBotV12().start();
     }
-
-    private WebSocketClient client;
-    protected StarterObjectApplication application;
-
-    @AutoStand
-    Configuration configuration;
 
     public void start() {
         application = new StarterObjectApplication();
@@ -91,6 +91,4 @@ public class WebChatClientWithOneBotV12 {
         };
         client.connect();
     }
-
-    public static final Set<ListenerHost> LISTENER_HOSTS = new HashSet<>();
 }

@@ -2,7 +2,7 @@ package io.github.gdpl2112.onebot.v12.contact;
 
 /**
  * @author github-kloping
- * @date 2023-04-05
+ * 2023-04-05
  */
 public class Self {
     private String userId;

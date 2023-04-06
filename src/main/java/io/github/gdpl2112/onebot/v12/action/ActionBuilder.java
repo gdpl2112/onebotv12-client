@@ -10,19 +10,19 @@ public class ActionBuilder {
     private String action;
     private Map<String, Object> params = new HashMap<>();
 
-    public Action build() {
-        Action ac = new Action();
-        ac.setAction(action);
-        ac.setParams(params);
-        return ac;
-    }
-
     public ActionBuilder(String action) {
         this.action = action;
     }
 
     public ActionBuilder(ActionName action) {
         this.action = action.name;
+    }
+
+    public Action build() {
+        Action ac = new Action();
+        ac.setAction(action);
+        ac.setParams(params);
+        return ac;
     }
 
     public ActionBuilder addParam(String key, Object value) {

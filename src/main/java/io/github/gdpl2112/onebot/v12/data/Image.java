@@ -8,6 +8,10 @@ import com.alibaba.fastjson.annotation.JSONField;
 public class Image extends Message {
     private FileId fileId;
 
+    public Image() {
+        setType("image");
+    }
+
     @Override
     public FileId getData() {
         return fileId;
@@ -25,9 +29,5 @@ public class Image extends Message {
     @JSONField(deserialize = true, serialize = false)
     public String getId() {
         return getData().getFileId();
-    }
-
-    public Image() {
-        setType("image");
     }
 }

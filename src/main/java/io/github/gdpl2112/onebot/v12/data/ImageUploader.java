@@ -26,6 +26,7 @@ public interface ImageUploader {
 
     /**
      * upload bytes as image
+     *
      * @param bytes
      * @return
      */

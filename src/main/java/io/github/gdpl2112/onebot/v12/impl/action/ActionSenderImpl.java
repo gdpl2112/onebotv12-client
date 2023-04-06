@@ -2,10 +2,10 @@ package io.github.gdpl2112.onebot.v12.impl.action;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.annotation.JSONField;
-import io.github.gdpl2112.onebot.v12.action.ActionResp;
-import io.github.gdpl2112.onebot.v12.action.ActionSender;
 import io.github.gdpl2112.onebot.v12.Configuration;
 import io.github.gdpl2112.onebot.v12.action.Action;
+import io.github.gdpl2112.onebot.v12.action.ActionResp;
+import io.github.gdpl2112.onebot.v12.action.ActionSender;
 import io.github.gdpl2112.onebot.v12.utils.HttpSender;
 
 import java.io.IOException;
@@ -14,6 +14,9 @@ import java.io.IOException;
  * @author github.kloping
  */
 public abstract class ActionSenderImpl implements ActionSender {
+    @JSONField(deserialize = false, serialize = false)
+    private Configuration configuration;
+
     @Override
     public ActionResp send(String data) {
         String rep = "{}";
@@ -30,9 +33,6 @@ public abstract class ActionSenderImpl implements ActionSender {
     public ActionResp send(Action action) {
         return send(JSON.toJSONString(action));
     }
-
-    @JSONField(deserialize = false, serialize = false)
-    private Configuration configuration;
 
     @JSONField(deserialize = false, serialize = false)
     @Override

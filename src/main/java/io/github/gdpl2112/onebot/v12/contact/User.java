@@ -3,7 +3,7 @@ package io.github.gdpl2112.onebot.v12.contact;
 /**
  * @author github.kloping
  */
-public class User extends Self{
+public class User extends Self {
     private String userName;
 
     public String getUserName() {

@@ -8,6 +8,17 @@ import com.alibaba.fastjson.annotation.JSONField;
 public class At extends Message {
     private AtId data;
 
+    public At() {
+        setType("mention");
+    }
+
+    public At(String id) {
+        setType("mention");
+        AtId ai = new AtId();
+        ai.setUserId(id);
+        setData(ai);
+    }
+
     @Override
     public AtId getData() {
         return data;
@@ -37,17 +48,6 @@ public class At extends Message {
         public void setUserId(String userId) {
             this.userId = userId;
         }
-    }
-
-    public At() {
-        setType("mention");
-    }
-
-    public At(String id) {
-        setType("mention");
-        AtId ai = new AtId();
-        ai.setUserId(id);
-        setData(ai);
     }
 
 

@@ -8,6 +8,15 @@ import com.alibaba.fastjson.annotation.JSONField;
 public class PlainText extends Message {
     private Text text;
 
+    public PlainText() {
+        setType("text");
+    }
+
+    public PlainText(String text) {
+        setType("text");
+        this.text = new Text(text);
+    }
+
     @Override
     public Text getData() {
         return text;
@@ -25,15 +34,6 @@ public class PlainText extends Message {
     @JSONField(deserialize = false, serialize = false)
     public String getText() {
         return this.text.getText();
-    }
-
-    public PlainText() {
-        setType("text");
-    }
-
-    public PlainText(String text) {
-        setType("text");
-        this.text = new Text(text);
     }
 
     public static class Text extends MessageData {

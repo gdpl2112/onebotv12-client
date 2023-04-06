@@ -28,32 +28,22 @@ public class MessageEventImpl extends EventImpl implements MessageEvent {
         return self;
     }
 
+    public void setSelf(Self self) {
+        this.self = self;
+    }
+
     @Override
     public String getMessageId() {
         return messageId;
     }
 
+    public void setMessageId(String messageId) {
+        this.messageId = messageId;
+    }
+
     @Override
     public MessageChain getMessage() {
         return new MessageChain(message);
-    }
-
-    @Override
-    public String getAltMessage() {
-        return altMessage;
-    }
-
-    @Override
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setSelf(Self self) {
-        this.self = self;
-    }
-
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
     }
 
     public void setMessage(JSONArray array) {
@@ -78,8 +68,18 @@ public class MessageEventImpl extends EventImpl implements MessageEvent {
         this.message = messages.toArray(new Message[0]);
     }
 
+    @Override
+    public String getAltMessage() {
+        return altMessage;
+    }
+
     public void setAltMessage(String altMessage) {
         this.altMessage = altMessage;
+    }
+
+    @Override
+    public String getUserId() {
+        return userId;
     }
 
     public void setUserId(String userId) {

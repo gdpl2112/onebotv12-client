@@ -5,8 +5,8 @@ import java.util.Map;
 
 /**
  * {
- *  "action": "send_message",
- *  "params": {}
+ * "action": "send_message",
+ * "params": {}
  * }
  *
  * @author github.kloping

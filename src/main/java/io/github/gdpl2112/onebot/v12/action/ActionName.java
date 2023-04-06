@@ -41,7 +41,8 @@ public enum ActionName {
     WX_SEND_FORWARD_MSG("wx.send_forward_msg"),
     WX_SEND_XML("wx.send_xml"),
     WX_SEND_CARD("wx.send_card"),
-    WX_CLEAN_FILE_CACHE("wx.clean_file_cache"),;
+    WX_CLEAN_FILE_CACHE("wx.clean_file_cache"),
+    ;
     String name;
 
     ActionName(String name) {

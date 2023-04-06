@@ -2,6 +2,7 @@ package io.github.gdpl2112.onebot.v12;
 
 import com.alibaba.fastjson.JSONObject;
 import io.github.gdpl2112.onebot.v12.action.ActionSender;
+import io.github.gdpl2112.onebot.v12.event.Event;
 import io.github.gdpl2112.onebot.v12.impl.event.EventImpl;
 import io.github.gdpl2112.onebot.v12.impl.event.GroupMessageEventImpl;
 import io.github.gdpl2112.onebot.v12.impl.event.MessageEventImpl;
@@ -10,7 +11,6 @@ import io.github.gdpl2112.onebot.v12.utils.InvokeUtils;
 import io.github.kloping.MySpringTool.annotations.AutoStand;
 import io.github.kloping.MySpringTool.annotations.Entity;
 import io.github.kloping.object.ObjectUtils;
-import io.github.gdpl2112.onebot.v12.event.Event;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -28,11 +28,10 @@ import static io.github.gdpl2112.onebot.v12.WebChatClientWithOneBotV12.LISTENER_
 @Entity
 public class EventManager {
 
-    @AutoStand
-    Configuration configuration;
-
     private final Map<Method, ListenerHost> M2L = new HashMap<>();
     private final Set<String> IDS = new HashSet<>();
+    @AutoStand
+    Configuration configuration;
 
     public synchronized void onEvent(String t, JSONObject obj) {
         try {

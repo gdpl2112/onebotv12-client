@@ -3,7 +3,6 @@ package io.github.gdpl2112.onebot.v12.contact;
 import com.alibaba.fastjson.annotation.JSONField;
 
 /**
- *
  * @author github.kloping
  */
 public class Member extends User {
