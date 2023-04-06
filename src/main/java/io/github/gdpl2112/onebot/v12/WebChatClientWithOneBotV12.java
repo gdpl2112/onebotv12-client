@@ -29,8 +29,10 @@ import java.util.concurrent.TimeUnit;
  */
 @CommentScan(path = "io.github.gdpl2112.onebot.v12")
 public class WebChatClientWithOneBotV12 {
-    /** Constant <code>LISTENER_HOSTS</code> */
-    public static final Set<ListenerHost> LISTENER_HOSTS = new HashSet<>();
+    /**
+     * Constant <code>LISTENER_HOSTS</code>
+     */
+    private static final Set<ListenerHost> LISTENER_HOSTS = new HashSet<>();
     protected StarterObjectApplication application;
     @AutoStand
     Configuration configuration;
@@ -102,5 +104,9 @@ public class WebChatClientWithOneBotV12 {
             }
         };
         client.connect();
+    }
+
+    public static void registerListenerHost(ListenerHost host) {
+        LISTENER_HOSTS.add(host);
     }
 }

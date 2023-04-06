@@ -9,7 +9,7 @@ import io.github.gdpl2112.onebot.v12.event.GroupMessageEvent;
  */
 public class test {
     public static void main(String[] args) {
-        WebChatClientWithOneBotV12.LISTENER_HOSTS.add(new ListenerHost() {
+        WebChatClientWithOneBotV12.registerListenerHost(new ListenerHost() {
             @Override
             public void handleException(Throwable e) {
 
