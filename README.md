@@ -12,3 +12,11 @@ conf.txt
 
 [模板](https://github.com/gdpl2112/onebotv12-client/blob/master/conf_template.txt)
 
+使用
+```
+  <dependency>  
+    <groupId>io.github.gdpl2112</groupId>
+    <artifactId>OneBotV12-WeChat</artifactId>
+    <version>1.0</version>
+  </dependency>
+```
