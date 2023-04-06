@@ -7,6 +7,12 @@
     <groupId>io.github.gdpl2112</groupId>
     <artifactId>OneBotV12-WeChat</artifactId>
     <version>1.0</version>
+    <packaging>jar</packaging>
+    <name>OneBotV12-WeChat</name>
+
+    <url>https://github.com/gdpl2112/onebotv12-client</url>
+
+    <description>OneBot V12 client</description>
 
     <properties>
         <java.version>8</java.version>
