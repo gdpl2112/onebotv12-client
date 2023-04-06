@@ -1,5 +1,6 @@
 package io.github.gdpl2112.onebot.v12.event;
 
+import io.github.gdpl2112.onebot.v12.contact.User;
 import io.github.gdpl2112.onebot.v12.data.ImageUploader;
 import io.github.gdpl2112.onebot.v12.data.MessageChain;
 
@@ -51,4 +52,12 @@ public interface MessageEvent extends BotEvent, ImageUploader {
      * @param message a {@link java.lang.String} object.
      */
     void sendMessage(String message);
+
+    /**
+     * 获取发送者
+     *
+     * @param <T>
+     * @return
+     */
+    <T extends User> T getSender();
 }

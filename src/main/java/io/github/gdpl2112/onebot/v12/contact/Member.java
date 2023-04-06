@@ -125,6 +125,7 @@ public class Member extends User {
      *
      * @param city a {@link java.lang.String} object
      */
+    @JSONField(name = "wx.city")
     public void setCity(String city) {
         this.city = city;
     }

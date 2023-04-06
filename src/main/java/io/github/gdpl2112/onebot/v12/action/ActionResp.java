@@ -3,8 +3,6 @@ package io.github.gdpl2112.onebot.v12.action;
 import com.alibaba.fastjson.JSON;
 import io.github.gdpl2112.onebot.v12.data.Message;
 
-import java.util.Map;
-
 /**
  * <p>ActionResp class.</p>
  *
@@ -15,7 +13,7 @@ public class ActionResp {
     private String status;
     private Integer retcode;
     private String message;
-    private Map<String, Object> data;
+    private Object data;
 
     /**
      * <p>Getter for the field <code>status</code>.</p>
@@ -72,20 +70,22 @@ public class ActionResp {
     }
 
     /**
-     * <p>Getter for the field <code>data</code>.</p>
+     * get Data as Type
      *
-     * @return a {@link java.util.Map} object
+     * @param cla
+     * @param <T>
+     * @return
      */
-    public Map<String, Object> getData() {
-        return data;
+    public <T> T getData(Class<T> cla) {
+        return (T) data;
     }
 
     /**
-     * <p>Setter for the field <code>data</code>.</p>
+     * set data
      *
-     * @param data a {@link java.util.Map} object
+     * @param data
      */
-    public void setData(Map<String, Object> data) {
+    public void setData(Object data) {
         this.data = data;
     }
 

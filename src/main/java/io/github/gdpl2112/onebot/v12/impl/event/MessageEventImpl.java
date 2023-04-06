@@ -19,7 +19,7 @@ import java.util.List;
  * @author github.kloping
  * @version 1.0
  */
-public class MessageEventImpl extends EventImpl implements MessageEvent {
+public abstract class MessageEventImpl extends EventImpl implements MessageEvent {
     private Self self;
     private String messageId;
     private Message[] message;

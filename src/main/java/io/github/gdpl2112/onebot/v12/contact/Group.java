@@ -2,6 +2,8 @@ package io.github.gdpl2112.onebot.v12.contact;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
+import java.util.List;
+
 /**
  * <p>Abstract Group class.</p>
  *
@@ -67,4 +69,18 @@ public abstract class Group implements Contact {
     public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
+
+    /**
+     * get member by id
+     *
+     * @param id
+     * @return
+     */
+    public abstract Member getMember(String id);
+
+    /***
+     * get member list
+     * @return
+     */
+    public abstract List<Member> getMembers();
 }

@@ -106,9 +106,11 @@ public class EventManager {
         Event event = null;
         if (cla == MetaEvent.class) {
             event = jo.toJavaObject(MetaEventImpl.class);
-        } else if (cla == MessageEvent.class) {
-            event = jo.toJavaObject(MessageEventImpl.class);
-        } else if (cla == FriendMessageEvent.class) {
+        }
+//        else if (cla == MessageEvent.class) {
+//            event = jo.toJavaObject(MessageEventImpl.class);
+//        }
+        else if (cla == FriendMessageEvent.class) {
             event = jo.toJavaObject(FriendMessageEventImpl.class);
         } else if (cla == GroupMessageEvent.class) {
             event = jo.toJavaObject(GroupMessageEventImpl.class);
