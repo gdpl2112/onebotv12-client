@@ -5,6 +5,9 @@ import io.github.gdpl2112.onebot.v12.contact.Group;
 import io.github.gdpl2112.onebot.v12.data.MessageChain;
 import io.github.gdpl2112.onebot.v12.event.GroupMessageEvent;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * <p>GroupMessageEventImpl class.</p>
  *
@@ -14,7 +17,9 @@ import io.github.gdpl2112.onebot.v12.event.GroupMessageEvent;
 public class GroupMessageEventImpl extends MessageEventImpl implements GroupMessageEvent {
     private String groupId;
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getGroupId() {
         return groupId;
@@ -29,9 +34,14 @@ public class GroupMessageEventImpl extends MessageEventImpl implements GroupMess
         this.groupId = groupId;
     }
 
-    /** {@inheritDoc} */
+    public static final Map<String, Group> GROUP_TEMP = new HashMap<>();
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    public Group getGroup() {
+    public synchronized Group getGroup() {
+        if (GROUP_TEMP.containsKey(getGroupId())) return GROUP_TEMP.get(getGroupId());
         Group group = new Group() {
             @Override
             public void sendMessage(MessageChain message) {
@@ -47,10 +57,13 @@ public class GroupMessageEventImpl extends MessageEventImpl implements GroupMess
         group.setGroupId(resp.getData().get("group_id").toString());
         group.setGroupName(resp.getData().get("group_name").toString());
         group.setAvatar(resp.getData().get("wx.avatar").toString());
+        GROUP_TEMP.put(getGroupId(), group);
         return group;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void sendMessage(MessageChain message) {
         Action action = new Action();

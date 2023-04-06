@@ -27,7 +27,7 @@ import java.util.concurrent.TimeUnit;
  * 2023-04-05
  * @version 1.0
  */
-@CommentScan(path = "io.github.kloping.onebot.v12")
+@CommentScan(path = "io.github.gdpl2112.onebot.v12")
 public class WebChatClientWithOneBotV12 {
     /** Constant <code>LISTENER_HOSTS</code> */
     public static final Set<ListenerHost> LISTENER_HOSTS = new HashSet<>();

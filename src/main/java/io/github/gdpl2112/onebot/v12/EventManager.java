@@ -2,11 +2,8 @@ package io.github.gdpl2112.onebot.v12;
 
 import com.alibaba.fastjson.JSONObject;
 import io.github.gdpl2112.onebot.v12.action.ActionSender;
-import io.github.gdpl2112.onebot.v12.event.Event;
-import io.github.gdpl2112.onebot.v12.impl.event.EventImpl;
-import io.github.gdpl2112.onebot.v12.impl.event.GroupMessageEventImpl;
-import io.github.gdpl2112.onebot.v12.impl.event.MessageEventImpl;
-import io.github.gdpl2112.onebot.v12.impl.event.MetaEventImpl;
+import io.github.gdpl2112.onebot.v12.event.*;
+import io.github.gdpl2112.onebot.v12.impl.event.*;
 import io.github.gdpl2112.onebot.v12.utils.InvokeUtils;
 import io.github.kloping.MySpringTool.annotations.AutoStand;
 import io.github.kloping.MySpringTool.annotations.Entity;
@@ -39,7 +36,7 @@ public class EventManager {
     /**
      * <p>onEvent.</p>
      *
-     * @param t a {@link java.lang.String} object.
+     * @param t   a {@link java.lang.String} object.
      * @param obj a {@link com.alibaba.fastjson.JSONObject} object.
      */
     public synchronized void onEvent(String t, JSONObject obj) {
@@ -52,13 +49,15 @@ public class EventManager {
             }
             switch (t) {
                 case "meta":
-                    c0 = MetaEventImpl.class;
+                    c0 = MetaEvent.class;
                     break;
                 case "message":
                     if ("group".equals(event.getDetailType())) {
-                        c0 = GroupMessageEventImpl.class;
+                        c0 = GroupMessageEvent.class;
                     } else if ("private".equals(event.getDetailType())) {
-                        c0 = MessageEventImpl.class;
+                        c0 = FriendMessageEvent.class;
+                    } else {
+                        c0 = MessageEvent.class;
                     }
                     break;
                 default:
@@ -98,18 +97,20 @@ public class EventManager {
      * <p>factory.</p>
      *
      * @param message a {@link io.github.gdpl2112.onebot.v12.event.Event} object.
-     * @param jo a {@link com.alibaba.fastjson.JSONObject} object.
-     * @param cla a {@link java.lang.Class} object.
-     * @param <T> a T object.
+     * @param jo      a {@link com.alibaba.fastjson.JSONObject} object.
+     * @param cla     a {@link java.lang.Class} object.
+     * @param <T>     a T object.
      * @return a T object.
      */
     public <T extends Event> T factory(Event message, JSONObject jo, Class<T> cla) {
         Event event = null;
-        if (cla == MetaEventImpl.class) {
+        if (cla == MetaEvent.class) {
             event = jo.toJavaObject(MetaEventImpl.class);
-        } else if (cla == MessageEventImpl.class) {
+        } else if (cla == MessageEvent.class) {
             event = jo.toJavaObject(MessageEventImpl.class);
-        } else if (cla == GroupMessageEventImpl.class) {
+        } else if (cla == FriendMessageEvent.class) {
+            event = jo.toJavaObject(FriendMessageEventImpl.class);
+        } else if (cla == GroupMessageEvent.class) {
             event = jo.toJavaObject(GroupMessageEventImpl.class);
         }
         if (event instanceof ActionSender) {
