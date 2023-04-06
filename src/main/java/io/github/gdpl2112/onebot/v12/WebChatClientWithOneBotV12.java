@@ -32,7 +32,7 @@ public class WebChatClientWithOneBotV12 {
     /**
      * Constant <code>LISTENER_HOSTS</code>
      */
-    private static final Set<ListenerHost> LISTENER_HOSTS = new HashSet<>();
+    protected static final Set<ListenerHost> LISTENER_HOSTS = new HashSet<>();
     protected StarterObjectApplication application;
     @AutoStand
     Configuration configuration;
