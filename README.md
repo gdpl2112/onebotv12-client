@@ -9,4 +9,4 @@
 需要配置文件
 conf.txt
 
-[模板]()
+[模板](https://github.com/gdpl2112/onebotv12-client/blob/master/conf_template.txt)
