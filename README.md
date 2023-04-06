@@ -2,6 +2,7 @@
 
 - [目前对接项目](https://github.com/JustUndertaker/ComWeChatBotClient)
 - 实现语言Java
+- 项目仅支持正向ws
 - onebot版本v12
 - 实现中..
 
