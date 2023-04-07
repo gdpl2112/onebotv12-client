@@ -16,7 +16,7 @@
   <dependency>  
     <groupId>io.github.gdpl2112</groupId>
     <artifactId>OneBotV12-WeChat</artifactId>
-    <version>1.1</version>
+    <version>1.2</version>
   </dependency>
 ```
 
