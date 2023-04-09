@@ -65,17 +65,24 @@ public class GroupMessageEventImpl extends MessageEventImpl implements GroupMess
 
             @Override
             public synchronized Member getMember(String id) {
-                if (MEMBER_TEMP.getOrDefault(this, EMPTY0).get(id) != null) {
-                    return MEMBER_TEMP.get(this).get(id);
+                if (members.isEmpty()) {
+                    getMembers();
                 }
-                Member member = new Member();
-                ActionResp resp = send(new ActionBuilder(ActionName.GET_GROUP_MEMBER_INFO)
-                        .addParam("group_id", getGroupId())
-                        .addParam("user_id", getUserId()).build());
-                JSONObject jo = resp.getData(JSONObject.class);
-                member = jo.toJavaObject(Member.class);
-                MapUtils.append(MEMBER_TEMP, this, id, member, HashMap.class);
-                return member;
+                Member member = MEMBER_TEMP.get(this).get(id);
+                if (member == null) {
+                    return null;
+                } else {
+                    if (MEMBER_TEMP.getOrDefault(this, EMPTY0).get(id) != null) {
+                        return MEMBER_TEMP.get(this).get(id);
+                    }
+                    ActionResp resp = send(new ActionBuilder(ActionName.GET_GROUP_MEMBER_INFO)
+                            .addParam("group_id", getGroupId())
+                            .addParam("user_id", id).build());
+                    JSONObject jo = resp.getData(JSONObject.class);
+                    member = jo.toJavaObject(Member.class);
+                    MapUtils.append(MEMBER_TEMP, this, id, member, HashMap.class);
+                    return member;
+                }
             }
 
             @Override

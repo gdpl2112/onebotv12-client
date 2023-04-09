@@ -7,6 +7,7 @@ import io.github.gdpl2112.onebot.v12.impl.event.EventImpl;
 import io.github.kloping.MySpringTool.StarterObjectApplication;
 import io.github.kloping.MySpringTool.annotations.AutoStand;
 import io.github.kloping.MySpringTool.annotations.CommentScan;
+import io.github.kloping.MySpringTool.interfaces.Logger;
 import io.github.kloping.date.FrameUtils;
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
@@ -29,6 +30,7 @@ import java.util.concurrent.TimeUnit;
  */
 @CommentScan(path = "io.github.gdpl2112.onebot.v12")
 public class WebChatClientWithOneBotV12 {
+    public static Logger logger;
     /**
      * Constant <code>LISTENER_HOSTS</code>
      */
@@ -54,6 +56,7 @@ public class WebChatClientWithOneBotV12 {
         application = new StarterObjectApplication();
         application.addConfFile("./conf.txt");
         application.run0(WebChatClientWithOneBotV12.class);
+        WebChatClientWithOneBotV12.logger = application.logger;
         configuration = application.INSTANCE.getContextManager().getContextEntity(WebChatClientWithOneBotV12.class).configuration;
         Map<String, String> headers = new HashMap<>();
         headers.put("access_token", configuration.getToken());

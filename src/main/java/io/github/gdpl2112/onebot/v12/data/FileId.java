@@ -1,5 +1,7 @@
 package io.github.gdpl2112.onebot.v12.data;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 /**
  * <p>FileId class.</p>
  *
@@ -7,6 +9,7 @@ package io.github.gdpl2112.onebot.v12.data;
  * @version 1.0
  */
 public class FileId extends MessageData {
+    @JSONField(name = "file_id")
     public String fileId;
 
     /**

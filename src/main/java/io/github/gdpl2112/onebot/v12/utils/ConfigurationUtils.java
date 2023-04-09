@@ -12,7 +12,6 @@ import io.github.kloping.url.UrlUtils;
 
 import java.io.File;
 import java.util.Base64;
-import java.util.HashMap;
 import java.util.UUID;
 
 /**
@@ -36,14 +35,7 @@ public class ConfigurationUtils {
      */
     public Image uploadImage(File file, ActionSender sender) {
         byte[] bytes = FileUtils.getBytesFromFile(file.getAbsolutePath());
-        ActionResp resp = sender.send(new ActionBuilder(ActionName.UPLOAD_FILE)
-                .addParam("type", "data")
-                .addParam("name", file.getName())
-                .addParam("data", Base64.getEncoder().encode(bytes)).build());
-        String fid = resp.getData(JSONObject.class).get("file_id").toString();
-        Image image = new Image();
-        image.setData(new FileId(fid));
-        return image;
+        return uploadImage(file.getName(), bytes, sender);
     }
 
     /**
@@ -54,11 +46,10 @@ public class ConfigurationUtils {
      * @return a {@link io.github.gdpl2112.onebot.v12.data.Image} object.
      */
     public Image uploadImage(String url, ActionSender sender) {
-        byte[] bytes = UrlUtils.getBytesFromHttpUrl(url);
         ActionResp resp = sender.send(new ActionBuilder(ActionName.UPLOAD_FILE)
-                .addParam("type", "data")
-                .addParam("name", new File(url).getName())
-                .addParam("data", Base64.getEncoder().encode(bytes)).build());
+                .addParam("type", "url")
+                .addParam("name", new File(url).getName() + ".jpg")
+                .addParam("url", url).build());
         String fid = resp.getData(JSONObject.class).get("file_id").toString();
         Image image = new Image();
         image.setData(new FileId(fid));
@@ -73,13 +64,27 @@ public class ConfigurationUtils {
      * @return a {@link io.github.gdpl2112.onebot.v12.data.Image} object.
      */
     public Image uploadImage(byte[] bytes, ActionSender sender) {
+        return uploadImage(UUID.randomUUID() + ".jpg", bytes, sender);
+    }
+
+
+    /**
+     * <p>uploadImage.</p>
+     *
+     * @param name   an string of name.
+     * @param bytes  an array of byte.
+     * @param sender a {@link io.github.gdpl2112.onebot.v12.action.ActionSender} object.
+     * @return a {@link io.github.gdpl2112.onebot.v12.data.Image} object.
+     */
+    public Image uploadImage(String name, byte[] bytes, ActionSender sender) {
         ActionResp resp = sender.send(new ActionBuilder(ActionName.UPLOAD_FILE)
                 .addParam("type", "data")
-                .addParam("name", UUID.randomUUID() + ".jpg")
+                .addParam("name", name)
                 .addParam("data", Base64.getEncoder().encode(bytes)).build());
         String fid = resp.getData(JSONObject.class).get("file_id").toString();
         Image image = new Image();
         image.setData(new FileId(fid));
         return image;
     }
+
 }

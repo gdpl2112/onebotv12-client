@@ -1,5 +1,7 @@
 package io.github.gdpl2112.onebot.v12.data;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 /**
  * <p>Abstract Message class.</p>
  *
@@ -14,6 +16,7 @@ public abstract class Message {
      *
      * @return a {@link java.lang.String} object.
      */
+    @JSONField(ordinal = 1)
     public String getType() {
         return type;
     }
@@ -32,6 +35,7 @@ public abstract class Message {
      *
      * @return a T object.
      */
+    @JSONField(ordinal = 2)
     public abstract <T extends MessageData> T getData();
 
     /**
