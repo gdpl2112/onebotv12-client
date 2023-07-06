@@ -53,7 +53,7 @@ public class WebChatClientWithOneBotV12 {
      * <p>start.</p>
      */
     public void start() {
-        application = new StarterObjectApplication();
+        application = new StarterObjectApplication(WebChatClientWithOneBotV12.class);
         application.addConfFile("./conf.txt");
         application.run0(WebChatClientWithOneBotV12.class);
         WebChatClientWithOneBotV12.logger = application.logger;
