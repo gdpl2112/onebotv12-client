@@ -59,7 +59,7 @@ public class WebChatClientWithOneBotV12 {
         WebChatClientWithOneBotV12.logger = application.logger;
         configuration = application.INSTANCE.getContextManager().getContextEntity(WebChatClientWithOneBotV12.class).configuration;
         Map<String, String> headers = new HashMap<>();
-        headers.put("access_token", configuration.getToken());
+        headers.put("Authorization", String.format("Bearer %s", configuration.getToken()));
         headers.put("host", configuration.getHost());
         headers.put("port", configuration.getPort().toString());
         URI uri = null;
@@ -91,7 +91,7 @@ public class WebChatClientWithOneBotV12 {
             @Override
             public void onClose(int code, String reason, boolean remote) {
                 Integer r = application.INSTANCE.getContextManager().getContextEntity(Integer.class, "reconnect");
-                application.logger.info("ws closed " + r + "(s) reconnect will");
+                application.logger.info("ws closed " + r + "(s) reconnect will;" + reason);
                 FrameUtils.SERVICE.schedule(() -> {
                     try {
                         client.reconnectBlocking();
