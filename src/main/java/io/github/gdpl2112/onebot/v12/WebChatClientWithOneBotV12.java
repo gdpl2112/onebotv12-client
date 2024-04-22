@@ -2,7 +2,6 @@ package io.github.gdpl2112.onebot.v12;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import io.github.gdpl2112.onebot.v12.event.Event;
 import io.github.gdpl2112.onebot.v12.impl.event.EventImpl;
 import io.github.kloping.MySpringTool.StarterObjectApplication;
 import io.github.kloping.MySpringTool.annotations.AutoStand;
@@ -78,7 +77,8 @@ public class WebChatClientWithOneBotV12 {
             public void onMessage(String message) {
                 application.logger.info("wss message: " + message);
                 JSONObject obj = JSON.parseObject(message);
-                Event event = obj.toJavaObject(EventImpl.class);
+                EventImpl event = obj.toJavaObject(EventImpl.class);
+                event.setRaw(obj);
                 configuration.getEventManager().onEvent(event.getType(), obj);
             }
 

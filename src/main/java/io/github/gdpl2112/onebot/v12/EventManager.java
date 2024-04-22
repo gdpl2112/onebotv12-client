@@ -3,7 +3,10 @@ package io.github.gdpl2112.onebot.v12;
 import com.alibaba.fastjson.JSONObject;
 import io.github.gdpl2112.onebot.v12.action.ActionSender;
 import io.github.gdpl2112.onebot.v12.event.*;
-import io.github.gdpl2112.onebot.v12.impl.event.*;
+import io.github.gdpl2112.onebot.v12.impl.event.EventImpl;
+import io.github.gdpl2112.onebot.v12.impl.event.FriendMessageEventImpl;
+import io.github.gdpl2112.onebot.v12.impl.event.GroupMessageEventImpl;
+import io.github.gdpl2112.onebot.v12.impl.event.MetaEventImpl;
 import io.github.gdpl2112.onebot.v12.utils.InvokeUtils;
 import io.github.kloping.MySpringTool.annotations.AutoStand;
 import io.github.kloping.MySpringTool.annotations.Entity;
@@ -106,11 +109,7 @@ public class EventManager {
         Event event = null;
         if (cla == MetaEvent.class) {
             event = jo.toJavaObject(MetaEventImpl.class);
-        }
-//        else if (cla == MessageEvent.class) {
-//            event = jo.toJavaObject(MessageEventImpl.class);
-//        }
-        else if (cla == FriendMessageEvent.class) {
+        } else if (cla == FriendMessageEvent.class) {
             event = jo.toJavaObject(FriendMessageEventImpl.class);
         } else if (cla == GroupMessageEvent.class) {
             event = jo.toJavaObject(GroupMessageEventImpl.class);

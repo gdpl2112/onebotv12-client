@@ -1,5 +1,7 @@
 package io.github.gdpl2112.onebot.v12.event;
 
+import com.alibaba.fastjson.JSONObject;
+
 /**
  *
  * @author github.kloping
@@ -40,4 +42,10 @@ public interface Event {
      * @return a {@link java.lang.String} object.
      */
     String getSubType();
+
+    /**
+     * 获取元数据
+     * @return
+     */
+    JSONObject getRaw();
 }

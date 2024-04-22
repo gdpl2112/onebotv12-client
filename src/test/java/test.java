@@ -1,14 +1,12 @@
-import com.alibaba.fastjson.JSON;
 import io.github.gdpl2112.onebot.v12.ListenerHost;
 import io.github.gdpl2112.onebot.v12.WebChatClientWithOneBotV12;
 import io.github.gdpl2112.onebot.v12.contact.Friend;
 import io.github.gdpl2112.onebot.v12.contact.Group;
 import io.github.gdpl2112.onebot.v12.contact.Member;
-import io.github.gdpl2112.onebot.v12.data.FileId;
-import io.github.gdpl2112.onebot.v12.data.Image;
 import io.github.gdpl2112.onebot.v12.event.EventReceiver;
 import io.github.gdpl2112.onebot.v12.event.FriendMessageEvent;
 import io.github.gdpl2112.onebot.v12.event.GroupMessageEvent;
+import io.github.gdpl2112.onebot.v12.event.MetaEvent;
 
 import java.util.List;
 
@@ -38,6 +36,11 @@ public class test {
                     Friend friend = event.getFriend();
                     event.sendMessage("测试成功");
                 }
+            }
+
+            @EventReceiver
+            public void onEvent(MetaEvent event) {
+                System.out.println(event);
             }
         });
         WebChatClientWithOneBotV12.main(args);

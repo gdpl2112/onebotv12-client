@@ -1,5 +1,6 @@
 package io.github.gdpl2112.onebot.v12.event;
 
+import io.github.gdpl2112.onebot.v12.data.Status;
 import io.github.gdpl2112.onebot.v12.data.Version;
 
 /**
@@ -15,4 +16,11 @@ public interface MetaEvent extends Event {
      * @return a {@link io.github.gdpl2112.onebot.v12.data.Version} object.
      */
     Version getVersion();
+
+    /**
+     * get status nullable
+     *
+     * @return
+     */
+    Status getStatus();
 }
