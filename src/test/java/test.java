@@ -1,14 +1,14 @@
 import io.github.gdpl2112.onebot.v12.ListenerHost;
 import io.github.gdpl2112.onebot.v12.WebChatClientWithOneBotV12;
 import io.github.gdpl2112.onebot.v12.contact.Friend;
-import io.github.gdpl2112.onebot.v12.contact.Group;
-import io.github.gdpl2112.onebot.v12.contact.Member;
+import io.github.gdpl2112.onebot.v12.data.Message;
+import io.github.gdpl2112.onebot.v12.data.MessageChain;
 import io.github.gdpl2112.onebot.v12.event.EventReceiver;
 import io.github.gdpl2112.onebot.v12.event.FriendMessageEvent;
 import io.github.gdpl2112.onebot.v12.event.GroupMessageEvent;
 import io.github.gdpl2112.onebot.v12.event.MetaEvent;
-
-import java.util.List;
+import io.github.gdpl2112.onebot.v12.utils.ConfigurationUtils;
+import io.github.kloping.file.FileUtils;
 
 /**
  * @author github.kloping
@@ -24,9 +24,9 @@ public class test {
             @EventReceiver
             public void onEvent(GroupMessageEvent event) {
                 if (event.getMessage().toString().trim().equals("测试")) {
-                    Group group = event.getGroup();
-                    List<Member> members = group.getMembers();
-                    System.out.println();
+                    event.sendMessage(new MessageChain(new Message[]{
+                            ConfigurationUtils.INSTANCE.uploadImage("96173877.png",
+                                    FileUtils.getBytesFromFile("D:\\图片\\96173877.png"), event)}));
                 }
             }
 

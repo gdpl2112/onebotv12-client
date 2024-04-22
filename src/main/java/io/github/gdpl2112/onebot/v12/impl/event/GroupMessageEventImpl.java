@@ -20,7 +20,7 @@ import java.util.Map;
  * @author github.kloping
  * @version 1.0
  */
-public class GroupMessageEventImpl extends MessageEventImpl implements GroupMessageEvent {
+public class GroupMessageEventImpl extends MessageEventImpl<Member> implements GroupMessageEvent {
     private String groupId;
 
     /**
@@ -127,6 +127,6 @@ public class GroupMessageEventImpl extends MessageEventImpl implements GroupMess
 
     @Override
     public Member getSender() {
-        return null;
+        return getGroup().getMember(getUserId());
     }
 }

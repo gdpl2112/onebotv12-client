@@ -9,7 +9,7 @@ import com.alibaba.fastjson.annotation.JSONField;
  * @version 1.0
  */
 public class Image extends Message {
-    private FileId fileId;
+    private FileId data;
 
     /**
      * <p>Constructor for Image.</p>
@@ -21,7 +21,7 @@ public class Image extends Message {
     /** {@inheritDoc} */
     @Override
     public FileId getData() {
-        return fileId;
+        return data;
     }
 
     /** {@inheritDoc} */
@@ -36,7 +36,7 @@ public class Image extends Message {
      * @param t a {@link io.github.gdpl2112.onebot.v12.data.FileId} object
      */
     public void setData(FileId t) {
-        this.fileId = t;
+        this.data = t;
     }
 
     /**

@@ -1,6 +1,7 @@
 package io.github.gdpl2112.onebot.v12.data;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import lombok.Getter;
 
 /**
  * <p>FileId class.</p>
@@ -8,6 +9,7 @@ import com.alibaba.fastjson.annotation.JSONField;
  * @author github.kloping
  * @version 1.0
  */
+@Getter
 public class FileId extends MessageData {
     @JSONField(name = "file_id")
     public String fileId;
@@ -25,15 +27,6 @@ public class FileId extends MessageData {
      */
     public FileId(String fileId) {
         this.fileId = fileId;
-    }
-
-    /**
-     * <p>Getter for the field <code>fileId</code>.</p>
-     *
-     * @return a {@link java.lang.String} object
-     */
-    public String getFileId() {
-        return fileId;
     }
 
     /**

@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import io.github.gdpl2112.onebot.v12.action.Action;
 import io.github.gdpl2112.onebot.v12.action.MessageParams;
 import io.github.gdpl2112.onebot.v12.contact.Self;
+import io.github.gdpl2112.onebot.v12.contact.User;
 import io.github.gdpl2112.onebot.v12.data.*;
 import io.github.gdpl2112.onebot.v12.event.MessageEvent;
 import io.github.gdpl2112.onebot.v12.utils.ConfigurationUtils;
@@ -19,7 +20,7 @@ import java.util.List;
  * @author github.kloping
  * @version 1.0
  */
-public abstract class MessageEventImpl extends EventImpl implements MessageEvent {
+public abstract class MessageEventImpl<T extends User> extends EventImpl implements MessageEvent<T> {
     private Self self;
     private String messageId;
     private Message[] message;

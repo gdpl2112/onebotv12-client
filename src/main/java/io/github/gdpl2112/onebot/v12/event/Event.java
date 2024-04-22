@@ -1,13 +1,14 @@
 package io.github.gdpl2112.onebot.v12.event;
 
 import com.alibaba.fastjson.JSONObject;
+import io.github.gdpl2112.onebot.v12.action.ActionSender;
 
 /**
  *
  * @author github.kloping
  * @version 1.0
  */
-public interface Event {
+public interface Event extends ActionSender {
     /**
      * id
      *
@@ -45,7 +46,7 @@ public interface Event {
 
     /**
      * 获取元数据
-     * @return
+     * @return raw
      */
     JSONObject getRaw();
 }

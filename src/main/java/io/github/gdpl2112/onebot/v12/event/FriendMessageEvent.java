@@ -9,10 +9,5 @@ import io.github.gdpl2112.onebot.v12.contact.Friend;
  * @version 1.0
  */
 public interface FriendMessageEvent extends MessageEvent {
-    /**
-     * get sender friend
-     *
-     * @return
-     */
     Friend getFriend();
 }

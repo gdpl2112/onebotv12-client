@@ -48,26 +48,33 @@ public class WebChatClientWithOneBotV12 {
         new WebChatClientWithOneBotV12().start();
     }
 
+    public static final Map<String, String> REQ_HEADERS = new HashMap<>();
+
+    private String confFile = "./conf.txt";
+
+    public void setConfFile(String confFile) {
+        this.confFile = confFile;
+    }
+
     /**
      * <p>start.</p>
      */
     public void start() {
         application = new StarterObjectApplication(WebChatClientWithOneBotV12.class);
-        application.addConfFile("./conf.txt");
+        application.addConfFile(confFile);
         application.run0(WebChatClientWithOneBotV12.class);
         WebChatClientWithOneBotV12.logger = application.logger;
         configuration = application.INSTANCE.getContextManager().getContextEntity(WebChatClientWithOneBotV12.class).configuration;
-        Map<String, String> headers = new HashMap<>();
-        headers.put("Authorization", String.format("Bearer %s", configuration.getToken()));
-        headers.put("host", configuration.getHost());
-        headers.put("port", configuration.getPort().toString());
+        REQ_HEADERS.put("Authorization", String.format("Bearer %s", configuration.getToken()));
+        REQ_HEADERS.put("host", configuration.getHost());
+        REQ_HEADERS.put("port", configuration.getPort().toString());
         URI uri = null;
         try {
             uri = new URI(String.format("ws://%s:%s/", configuration.getHost(), configuration.getPort()));
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }
-        client = new WebSocketClient(uri, headers) {
+        client = new WebSocketClient(uri, REQ_HEADERS) {
             @Override
             public void onOpen(ServerHandshake sh) {
                 application.logger.info("ws opened");

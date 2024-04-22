@@ -1,6 +1,7 @@
 package io.github.gdpl2112.onebot.v12.event;
 
 import io.github.gdpl2112.onebot.v12.contact.Group;
+import io.github.gdpl2112.onebot.v12.contact.Member;
 
 /**
  * <p>GroupMessageEvent interface.</p>
@@ -8,7 +9,7 @@ import io.github.gdpl2112.onebot.v12.contact.Group;
  * @author github.kloping
  * @version 1.0
  */
-public interface GroupMessageEvent extends MessageEvent {
+public interface GroupMessageEvent extends MessageEvent<Member> {
     /**
      * groupId
      *

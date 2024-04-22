@@ -1,5 +1,6 @@
 package io.github.gdpl2112.onebot.v12.utils;
 
+import io.github.gdpl2112.onebot.v12.WebChatClientWithOneBotV12;
 import org.jsoup.Jsoup;
 
 import java.io.IOException;
@@ -22,7 +23,9 @@ public class HttpSender {
     public static String sendPost(String url, String json) throws IOException {
         String data = null;
         data = Jsoup.connect(url)
-                .requestBody(json).ignoreContentType(true).post().body().text();
+                .headers(WebChatClientWithOneBotV12.REQ_HEADERS)
+                .requestBody(json).ignoreContentType(true)
+                .post().body().text();
         return data;
     }
 }

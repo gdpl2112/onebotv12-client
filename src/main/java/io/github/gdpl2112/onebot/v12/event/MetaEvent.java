@@ -17,10 +17,5 @@ public interface MetaEvent extends Event {
      */
     Version getVersion();
 
-    /**
-     * get status nullable
-     *
-     * @return
-     */
     Status getStatus();
 }

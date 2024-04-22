@@ -10,7 +10,7 @@ import io.github.gdpl2112.onebot.v12.data.MessageChain;
  * @author github.kloping
  * @version 1.0
  */
-public interface MessageEvent extends BotEvent, ImageUploader {
+public interface MessageEvent<T extends User> extends BotEvent, ImageUploader {
     /**
      * messageId
      *
@@ -53,11 +53,5 @@ public interface MessageEvent extends BotEvent, ImageUploader {
      */
     void sendMessage(String message);
 
-    /**
-     * 获取发送者
-     *
-     * @param <T>
-     * @return
-     */
-    <T extends User> T getSender();
+    T getSender();
 }
